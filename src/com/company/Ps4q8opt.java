@@ -1,5 +1,4 @@
-/*
-Let’s improve the monopolyRoll() function from the previous problem set. Recall that in
+/*Let’s improve the monopolyRoll() function from the previous problem set. Recall that in
 Monopoly, players roll two six-sided dice to determine their move. If the same value is on
 both dice, this is called “rolling doubles,” and it means they go again. In the last problem
 set, you wrote a function that rolled two six-sided dice and, if the values on both die were
@@ -26,10 +25,11 @@ You can get an overview of recursion in Java here:
 https://howtoprogramwithjava.com/java-recursion/
 */
 
+//Opcja 1:
 
 package com.company;
 
-public class Ps4q8 {
+public class Ps4q8opt {
 
     public int rzutKostka() {
         double liczbaLos = Math.random() * 6 + 1;
@@ -40,12 +40,15 @@ public class Ps4q8 {
         int kostka1 = rzutKostka();
         int kostka2 = rzutKostka();
         int razem = kostka1 + kostka2;
+
+        int licznik = 1;
         while(kostka1 == kostka2) {
+            if(licznik >= 3) return -1;
             kostka1 = rzutKostka();
             kostka2 = rzutKostka();
             razem = razem + kostka1 + kostka2;
+            licznik++;
         }
         return razem;
-
     }
 }
